@@ -11,7 +11,7 @@ st.title("Onco ICU Goals of Care Digital Twin")
 # -----------------------------
 @st.cache_resource
 def load_and_train():
-    data = pd.read_csv("GoC_Digital_Twin_AutoML_Ready.csv")
+    data = pd.read_csvdata = pd.read_csv("data.csv")
 
     target = "target_GoC"
     X = data.drop(columns=[target])
@@ -99,4 +99,5 @@ if st.button("Predict Goals of Care"):
     st.subheader("Probabilities")
     for c, p in zip(model.classes_, prob):
         st.write(f"{c}: {round(p*100,2)}%")
+
 
