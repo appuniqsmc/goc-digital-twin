@@ -4,38 +4,28 @@ import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 import matplotlib.pyplot as plt
 
-st.title("Onco ICU Digital Twin — Advanced Simulation Platform")
+st.title("Onco ICU Digital Twin — Research Version")
 
-# ================= MODEL =================
+# ================= LOAD CSV MODEL =================
 @st.cache_resource
-def create_model():
+def load_model():
 
-    np.random.seed(42)
-    n = 500
+    data = pd.read_csv("GoC_Digital_Twin_AutoML_Ready.csv")
+    data.columns = data.columns.str.strip()
 
-    data = pd.DataFrame({
-        "Age": np.random.randint(18, 95, n),
-        "GCS": np.random.randint(3, 15, n),
-        "CCI": np.random.randint(0, 10, n),
-        "Diagnosis": np.random.choice(["Sepsis","Stroke","Cardiac Arrest","Pneumonia"], n),
-        "Vent": np.random.choice(["Yes","No"], n),
-        "Malignancy": np.random.choice(["Controlled","Progressive","New"], n),
-        "Prognosis": np.random.choice(["Good","Moderate","Poor"], n),
-        "Family": np.random.choice(["Aggressive","Comfort","Undecided"], n),
-        "ICU_Day": np.random.randint(1, 15, n)
-    })
+    target = "target_GoC"
 
-    data["GoC"] = np.random.choice(["Full","Limited","Comfort"], n)
+    X = data.drop(columns=[target])
+    y = data[target]
 
-    X = pd.get_dummies(data.drop("GoC", axis=1))
-    y = data["GoC"]
+    X_enc = pd.get_dummies(X)
 
-    model = RandomForestClassifier(n_estimators=200)
-    model.fit(X,y)
+    model = RandomForestClassifier(n_estimators=300, random_state=42)
+    model.fit(X_enc, y)
 
-    return model, X.columns
+    return model, X_enc.columns
 
-model, feature_cols = create_model()
+model, feature_cols = load_model()
 
 # ================= TABS =================
 tab1, tab2, tab3, tab4, tab5 = st.tabs([
@@ -53,20 +43,28 @@ with tab1:
 
     age = st.slider("Age",18,95,60)
     gcs = st.slider("GCS",3,15,12)
-    cci = st.slider("CCI",0,10,2)
+    cci = st.slider("Charlson Index",0,10,2)
     diag = st.selectbox("Diagnosis",["Sepsis","Stroke","Cardiac Arrest","Pneumonia"])
-    vent = st.selectbox("Ventilation",["Yes","No"])
-    mal = st.selectbox("Malignancy",["Controlled","Progressive","New"])
+    vent = st.selectbox("Mechanical Ventilation",["Yes","No"])
+    mal = st.selectbox("Active Malignancy",["Controlled","Progressive","Newly Diagnosed"])
     prog = st.selectbox("Prognosis",["Good","Moderate","Poor"])
-    fam = st.selectbox("Family",["Aggressive","Comfort","Undecided"])
-    day = st.slider("ICU Day",1,15,3)
+    fam = st.selectbox("Family Preference",["Aggressive","Comfort","Undecided"])
+    day = st.slider("ICU Day",1,20,3)
+    phys = st.selectbox("Physician Level",["Resident","Attending","Specialist"])
 
     if st.button("Predict"):
 
         p = pd.DataFrame({
-            "Age":[age],"GCS":[gcs],"CCI":[cci],"Diagnosis":[diag],
-            "Vent":[vent],"Malignancy":[mal],"Prognosis":[prog],
-            "Family":[fam],"ICU_Day":[day]
+            "Age":[age],
+            "GCS":[gcs],
+            "Charlson_Comorbidity_Index":[cci],
+            "Diagnosis":[diag],
+            "Mechanical_Ventilation":[vent],
+            "Active_Malignancy":[mal],
+            "Clinical_Prognosis":[prog],
+            "Family_Preference":[fam],
+            "ICU_Day":[day],
+            "Physician_Level":[phys]
         })
 
         st.session_state["patient"] = p
@@ -99,9 +97,9 @@ with tab2:
 
         if st.button("Run Simulation"):
 
-            if sf!="Same": base["Family"]=sf
-            if sp!="Same": base["Prognosis"]=sp
-            if sv!="Same": base["Vent"]=sv
+            if sf!="Same": base["Family_Preference"]=sf
+            if sp!="Same": base["Clinical_Prognosis"]=sp
+            if sv!="Same": base["Mechanical_Ventilation"]=sv
 
             base["ICU_Day"] = base["ICU_Day"] + sd
 
@@ -157,7 +155,7 @@ with tab4:
         st.warning("Run Prediction First")
     else:
 
-        guess = st.selectbox("Your GoC Guess",["Full","Limited","Comfort"])
+        guess = st.selectbox("Your GoC Guess",["Full Care","Limited Care","Comfort Care"])
 
         if st.button("Check Answer"):
 
