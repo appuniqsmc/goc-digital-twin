@@ -4,234 +4,184 @@ import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 import matplotlib.pyplot as plt
 
-st.title("Onco ICU Goals of Care Digital Twin")
+st.title("Onco ICU Digital Twin — Advanced Simulation Platform")
 
-# =========================
-# MODEL CREATION
-# =========================
+# ================= MODEL =================
 @st.cache_resource
-def create_and_train():
+def create_model():
 
     np.random.seed(42)
-    n = 400
+    n = 500
 
     data = pd.DataFrame({
         "Age": np.random.randint(18, 95, n),
         "GCS": np.random.randint(3, 15, n),
-        "Charlson_Comorbidity_Index": np.random.randint(0, 10, n),
+        "CCI": np.random.randint(0, 10, n),
         "Diagnosis": np.random.choice(["Sepsis","Stroke","Cardiac Arrest","Pneumonia"], n),
-        "Mechanical_Ventilation": np.random.choice(["Yes","No"], n),
-        "Active_Malignancy": np.random.choice(["Controlled","Progressive","Newly Diagnosed"], n),
-        "Clinical_Prognosis": np.random.choice(["Good","Moderate","Poor"], n),
-        "Family_Preference": np.random.choice(["Aggressive","Comfort","Undecided"], n),
-        "ICU_Day": np.random.randint(1, 20, n),
-        "Physician_Level": np.random.choice(["Resident","Attending","Specialist"], n)
+        "Vent": np.random.choice(["Yes","No"], n),
+        "Malignancy": np.random.choice(["Controlled","Progressive","New"], n),
+        "Prognosis": np.random.choice(["Good","Moderate","Poor"], n),
+        "Family": np.random.choice(["Aggressive","Comfort","Undecided"], n),
+        "ICU_Day": np.random.randint(1, 15, n)
     })
 
-    data["target_GoC"] = np.random.choice(
-        ["Full Care","Limited Care","Comfort Care"], n
-    )
+    data["GoC"] = np.random.choice(["Full","Limited","Comfort"], n)
 
-    X = data.drop(columns=["target_GoC"])
-    y = data["target_GoC"]
+    X = pd.get_dummies(data.drop("GoC", axis=1))
+    y = data["GoC"]
 
-    X_enc = pd.get_dummies(X)
+    model = RandomForestClassifier(n_estimators=200)
+    model.fit(X,y)
 
-    model = RandomForestClassifier(n_estimators=200, random_state=42)
-    model.fit(X_enc, y)
+    return model, X.columns
 
-    return model, X_enc.columns
+model, feature_cols = create_model()
 
-model, feature_columns = create_and_train()
-
-# =========================
-# TABS UI
-# =========================
-tab1, tab2, tab3, tab4 = st.tabs([
-    "Prediction",
-    "Advanced Simulation",
-    "Case Bank",
-    "Explainability"
+# ================= TABS =================
+tab1, tab2, tab3, tab4, tab5 = st.tabs([
+"Prediction",
+"Advanced Simulation",
+"ICU Timeline Twin",
+"Resident Training",
+"Explainable AI"
 ])
 
-# =========================
-# TAB 1 — PREDICTION
-# =========================
+# ================= TAB 1 =================
 with tab1:
 
     st.header("Clinical Prediction")
 
-    age = st.slider("Age", 18, 95, 60)
-    gcs = st.slider("GCS", 3, 15, 12)
-    cci = st.slider("Charlson Index", 0, 10, 2)
+    age = st.slider("Age",18,95,60)
+    gcs = st.slider("GCS",3,15,12)
+    cci = st.slider("CCI",0,10,2)
+    diag = st.selectbox("Diagnosis",["Sepsis","Stroke","Cardiac Arrest","Pneumonia"])
+    vent = st.selectbox("Ventilation",["Yes","No"])
+    mal = st.selectbox("Malignancy",["Controlled","Progressive","New"])
+    prog = st.selectbox("Prognosis",["Good","Moderate","Poor"])
+    fam = st.selectbox("Family",["Aggressive","Comfort","Undecided"])
+    day = st.slider("ICU Day",1,15,3)
 
-    diagnosis = st.selectbox(
-        "Diagnosis",
-        ["Sepsis","Stroke","Cardiac Arrest","Pneumonia"]
-    )
+    if st.button("Predict"):
 
-    vent = st.selectbox("Mechanical Ventilation", ["Yes","No"])
-
-    malignancy = st.selectbox(
-        "Active Malignancy",
-        ["Controlled","Progressive","Newly Diagnosed"]
-    )
-
-    prognosis = st.selectbox(
-        "Clinical Prognosis",
-        ["Good","Moderate","Poor"]
-    )
-
-    family = st.selectbox(
-        "Family Preference",
-        ["Aggressive","Comfort","Undecided"]
-    )
-
-    icu_day = st.slider("ICU Day", 1, 20, 3)
-
-    physician = st.selectbox(
-        "Physician Level",
-        ["Resident","Attending","Specialist"]
-    )
-
-    if st.button("Predict GoC"):
-
-        patient = pd.DataFrame({
-            "Age":[age],
-            "GCS":[gcs],
-            "Charlson_Comorbidity_Index":[cci],
-            "Diagnosis":[diagnosis],
-            "Mechanical_Ventilation":[vent],
-            "Active_Malignancy":[malignancy],
-            "Clinical_Prognosis":[prognosis],
-            "Family_Preference":[family],
-            "ICU_Day":[icu_day],
-            "Physician_Level":[physician]
+        p = pd.DataFrame({
+            "Age":[age],"GCS":[gcs],"CCI":[cci],"Diagnosis":[diag],
+            "Vent":[vent],"Malignancy":[mal],"Prognosis":[prog],
+            "Family":[fam],"ICU_Day":[day]
         })
 
-        st.session_state["patient"] = patient
+        st.session_state["patient"] = p
 
-        patient_enc = pd.get_dummies(patient)
-        patient_enc = patient_enc.reindex(columns=feature_columns, fill_value=0)
+        pe = pd.get_dummies(p).reindex(columns=feature_cols,fill_value=0)
 
-        pred = model.predict(patient_enc)[0]
-        prob = model.predict_proba(patient_enc)[0]
+        pred = model.predict(pe)[0]
+        prob = model.predict_proba(pe)[0]
 
         st.success(pred)
 
-        st.subheader("Probabilities")
-        for c,p in zip(model.classes_, prob):
-            st.write(f"{c}: {round(p*100,2)}%")
+        for c,v in zip(model.classes_,prob):
+            st.write(c,":",round(v*100,2),"%")
 
-# =========================
-# TAB 2 — ADVANCED SIMULATION
-# =========================
+# ================= TAB 2 =================
 with tab2:
 
-    st.header("Multi Variable What-If Simulation")
+    st.header("Multi Variable Simulation")
 
     if "patient" not in st.session_state:
-        st.warning("Run prediction first in Prediction tab")
+        st.warning("Run Prediction First")
     else:
 
-        base_patient = st.session_state["patient"].copy()
+        base = st.session_state["patient"].copy()
 
-        st.subheader("Change Variables")
+        sf = st.selectbox("Family Change",["Same","Aggressive","Comfort","Undecided"])
+        sp = st.selectbox("Prognosis Change",["Same","Good","Moderate","Poor"])
+        sv = st.selectbox("Vent Change",["Same","Yes","No"])
+        sd = st.slider("ICU Day Shift",-5,10,0)
 
-        sim_family = st.selectbox(
-            "Family Preference Change",
-            ["Keep Same","Aggressive","Comfort","Undecided"]
-        )
+        if st.button("Run Simulation"):
 
-        sim_prognosis = st.selectbox(
-            "Prognosis Change",
-            ["Keep Same","Good","Moderate","Poor"]
-        )
+            if sf!="Same": base["Family"]=sf
+            if sp!="Same": base["Prognosis"]=sp
+            if sv!="Same": base["Vent"]=sv
 
-        sim_vent = st.selectbox(
-            "Ventilation Change",
-            ["Keep Same","Yes","No"]
-        )
+            base["ICU_Day"] = base["ICU_Day"] + sd
 
-        sim_day = st.slider("ICU Day Change", -5, 10, 0)
+            se = pd.get_dummies(base).reindex(columns=feature_cols,fill_value=0)
 
-        if st.button("Run Advanced Simulation"):
+            pred = model.predict(se)[0]
+            prob = model.predict_proba(se)[0]
 
-            sim_patient = base_patient.copy()
+            st.success(pred)
 
-            if sim_family != "Keep Same":
-                sim_patient["Family_Preference"] = sim_family
+            for c,v in zip(model.classes_,prob):
+                st.write(c,":",round(v*100,2),"%")
 
-            if sim_prognosis != "Keep Same":
-                sim_patient["Clinical_Prognosis"] = sim_prognosis
-
-            if sim_vent != "Keep Same":
-                sim_patient["Mechanical_Ventilation"] = sim_vent
-
-            sim_patient["ICU_Day"] = sim_patient["ICU_Day"] + sim_day
-
-            sim_enc = pd.get_dummies(sim_patient)
-            sim_enc = sim_enc.reindex(columns=feature_columns, fill_value=0)
-
-            sim_pred = model.predict(sim_enc)[0]
-            sim_prob = model.predict_proba(sim_enc)[0]
-
-            st.success(f"Simulated Outcome: {sim_pred}")
-
-            st.subheader("Simulation Probabilities")
-            for c,p in zip(model.classes_, sim_prob):
-                st.write(f"{c}: {round(p*100,2)}%")
-
-# =========================
-# TAB 3 — CASE BANK
-# =========================
+# ================= TAB 3 =================
 with tab3:
 
-    st.header("Teaching Case Bank")
+    st.header("ICU Trajectory Twin")
 
-    cases = {
-        "Metastatic Cancer Poor Prognosis": {
-            "Age":70,"GCS":8,"Charlson_Comorbidity_Index":7,
-            "Diagnosis":"Sepsis","Mechanical_Ventilation":"Yes",
-            "Active_Malignancy":"Progressive","Clinical_Prognosis":"Poor",
-            "Family_Preference":"Comfort","ICU_Day":5,"Physician_Level":"Specialist"
-        },
+    if "patient" not in st.session_state:
+        st.warning("Run Prediction First")
+    else:
 
-        "Young Sepsis Reversible": {
-            "Age":45,"GCS":14,"Charlson_Comorbidity_Index":1,
-            "Diagnosis":"Sepsis","Mechanical_Ventilation":"No",
-            "Active_Malignancy":"Controlled","Clinical_Prognosis":"Good",
-            "Family_Preference":"Aggressive","ICU_Day":2,"Physician_Level":"Resident"
-        }
-    }
+        base = st.session_state["patient"].copy()
 
-    case_select = st.selectbox("Select Case", list(cases.keys()))
+        days = st.slider("Simulate Days Forward",1,10,5)
 
-    if st.button("Run Case"):
+        trend = []
 
-        case_patient = pd.DataFrame([cases[case_select]])
+        for d in range(days):
+            temp = base.copy()
+            temp["ICU_Day"] = temp["ICU_Day"] + d
+            te = pd.get_dummies(temp).reindex(columns=feature_cols,fill_value=0)
+            pr = model.predict_proba(te)[0]
+            trend.append(pr)
 
-        case_enc = pd.get_dummies(case_patient)
-        case_enc = case_enc.reindex(columns=feature_columns, fill_value=0)
+        trend = np.array(trend)
 
-        case_pred = model.predict(case_enc)[0]
+        fig = plt.figure()
+        for i,c in enumerate(model.classes_):
+            plt.plot(trend[:,i],label=c)
 
-        st.success(f"Case Prediction: {case_pred}")
+        plt.legend()
+        plt.xlabel("ICU Days")
+        plt.ylabel("Probability")
+        st.pyplot(fig)
 
-# =========================
-# TAB 4 — EXPLAINABILITY
-# =========================
+# ================= TAB 4 =================
 with tab4:
 
-    st.header("Decision Drivers")
+    st.header("Resident Training Mode")
 
-    importance = pd.DataFrame({
-        "Feature": feature_columns,
-        "Importance": model.feature_importances_
-    }).sort_values("Importance", ascending=False)
+    if "patient" not in st.session_state:
+        st.warning("Run Prediction First")
+    else:
+
+        guess = st.selectbox("Your GoC Guess",["Full","Limited","Comfort"])
+
+        if st.button("Check Answer"):
+
+            p = st.session_state["patient"]
+            pe = pd.get_dummies(p).reindex(columns=feature_cols,fill_value=0)
+            true = model.predict(pe)[0]
+
+            if guess == true:
+                st.success("Correct")
+            else:
+                st.error(f"Model Suggests: {true}")
+
+# ================= TAB 5 =================
+with tab5:
+
+    st.header("Feature Importance")
+
+    imp = pd.DataFrame({
+        "Feature":feature_cols,
+        "Importance":model.feature_importances_
+    }).sort_values("Importance",ascending=False)
 
     fig = plt.figure()
-    plt.barh(importance["Feature"][:10], importance["Importance"][:10])
+    plt.barh(imp["Feature"][:10],imp["Importance"][:10])
     plt.gca().invert_yaxis()
     st.pyplot(fig)
 
