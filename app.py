@@ -49,7 +49,7 @@ model, feature_columns = create_and_train()
 # =========================
 tab1, tab2, tab3, tab4 = st.tabs([
     "Prediction",
-    "Simulation",
+    "Advanced Simulation",
     "Case Bank",
     "Explainability"
 ])
@@ -124,32 +124,63 @@ with tab1:
             st.write(f"{c}: {round(p*100,2)}%")
 
 # =========================
-# TAB 2 — SIMULATION
+# TAB 2 — ADVANCED SIMULATION
 # =========================
 with tab2:
 
-    st.header("What-If Simulation")
+    st.header("Multi Variable What-If Simulation")
 
     if "patient" not in st.session_state:
         st.warning("Run prediction first in Prediction tab")
     else:
 
+        base_patient = st.session_state["patient"].copy()
+
+        st.subheader("Change Variables")
+
         sim_family = st.selectbox(
-            "Change Family Preference",
-            ["Aggressive","Comfort","Undecided"]
+            "Family Preference Change",
+            ["Keep Same","Aggressive","Comfort","Undecided"]
         )
 
-        if st.button("Run Simulation"):
+        sim_prognosis = st.selectbox(
+            "Prognosis Change",
+            ["Keep Same","Good","Moderate","Poor"]
+        )
 
-            sim_patient = st.session_state["patient"].copy()
-            sim_patient["Family_Preference"] = sim_family
+        sim_vent = st.selectbox(
+            "Ventilation Change",
+            ["Keep Same","Yes","No"]
+        )
+
+        sim_day = st.slider("ICU Day Change", -5, 10, 0)
+
+        if st.button("Run Advanced Simulation"):
+
+            sim_patient = base_patient.copy()
+
+            if sim_family != "Keep Same":
+                sim_patient["Family_Preference"] = sim_family
+
+            if sim_prognosis != "Keep Same":
+                sim_patient["Clinical_Prognosis"] = sim_prognosis
+
+            if sim_vent != "Keep Same":
+                sim_patient["Mechanical_Ventilation"] = sim_vent
+
+            sim_patient["ICU_Day"] = sim_patient["ICU_Day"] + sim_day
 
             sim_enc = pd.get_dummies(sim_patient)
             sim_enc = sim_enc.reindex(columns=feature_columns, fill_value=0)
 
             sim_pred = model.predict(sim_enc)[0]
+            sim_prob = model.predict_proba(sim_enc)[0]
 
-            st.info(f"Simulated Outcome: {sim_pred}")
+            st.success(f"Simulated Outcome: {sim_pred}")
+
+            st.subheader("Simulation Probabilities")
+            for c,p in zip(model.classes_, sim_prob):
+                st.write(f"{c}: {round(p*100,2)}%")
 
 # =========================
 # TAB 3 — CASE BANK
@@ -203,6 +234,7 @@ with tab4:
     plt.barh(importance["Feature"][:10], importance["Importance"][:10])
     plt.gca().invert_yaxis()
     st.pyplot(fig)
+
 
 
 
