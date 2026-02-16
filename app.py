@@ -5,9 +5,6 @@ from sklearn.ensemble import RandomForestClassifier
 
 st.title("Onco ICU Goals of Care Digital Twin")
 
-# ----------------------
-# CREATE DATA INSIDE APP
-# ----------------------
 @st.cache_resource
 def create_and_train():
 
@@ -28,10 +25,8 @@ def create_and_train():
         "Physician_Level": np.random.choice(["Resident","Attending","Specialist"], n)
     })
 
-    # Create synthetic GoC outcome
     data["target_GoC"] = np.random.choice(
-        ["Full Care","Limited Care","Comfort Care"],
-        n
+        ["Full Care","Limited Care","Comfort Care"], n
     )
 
     X = data.drop(columns=["target_GoC"])
@@ -45,10 +40,6 @@ def create_and_train():
     return model, X_enc.columns
 
 model, feature_columns = create_and_train()
-
-# ----------------------
-# USER INPUT UI
-# ----------------------
 
 age = st.slider("Age", 18, 95, 60)
 gcs = st.slider("GCS", 3, 15, 12)
@@ -83,10 +74,6 @@ physician = st.selectbox(
     ["Resident","Attending","Specialist"]
 )
 
-# ----------------------
-# PREDICT
-# ----------------------
-
 if st.button("Predict Goals of Care"):
 
     patient = pd.DataFrame({
@@ -110,10 +97,9 @@ if st.button("Predict Goals of Care"):
 
     st.success(pred)
 
-    st.subheader("Probabilities")
-
     for c,p in zip(model.classes_, prob):
         st.write(f"{c}: {round(p*100,2)}%")
+
 
 
 
