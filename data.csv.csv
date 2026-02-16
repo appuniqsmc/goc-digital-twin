@@ -1,0 +1,401 @@
+Patient_ID,Age,GCS,Charlson_Comorbidity_Index,Diagnosis,Prior_ICU_Admission,Active_Malignancy,Mechanical_Ventilation,Clinical_Prognosis,Family_Preference,ICU_Day,Physician_Level,target_GoC
+1,69,14,9,Cardiac Arrest,No,Newly Diagnosed,No,Poor,Aggressive,15,Attending,Comfort Care
+2,32,12,0,Stroke,No,Newly Diagnosed,Yes,Moderate,Undecided,6,Resident,Limited Care
+3,89,12,3,Sepsis,Yes,Progressive,Yes,Good,Comfort,20,Attending,Limited Care
+4,78,7,7,Stroke,No,Progressive,Yes,Moderate,Comfort,9,Specialist,Comfort Care
+5,38,9,4,Cardiac Arrest,Yes,Controlled,Yes,Good,Undecided,20,Attending,Limited Care
+6,92,6,1,Cardiac Arrest,Yes,Controlled,No,Good,Undecided,12,Attending,Limited Care
+7,92,3,5,Stroke,No,Progressive,Yes,Poor,Aggressive,19,Resident,Comfort Care
+8,41,7,4,Stroke,No,Controlled,Yes,Moderate,Aggressive,20,Specialist,Limited Care
+9,20,9,1,Stroke,Yes,Newly Diagnosed,No,Poor,Undecided,3,Specialist,Comfort Care
+10,39,12,10,Pneumonia,No,Newly Diagnosed,Yes,Moderate,Aggressive,15,Specialist,Limited Care
+11,70,12,10,Sepsis,Yes,Progressive,No,Moderate,Comfort,2,Specialist,Comfort Care
+12,19,8,10,Stroke,No,Controlled,Yes,Good,Undecided,2,Specialist,Limited Care
+13,47,7,2,Stroke,No,Controlled,No,Good,Aggressive,3,Specialist,Full Care
+14,55,6,8,Stroke,No,Controlled,Yes,Poor,Comfort,6,Specialist,Comfort Care
+15,19,4,6,Cardiac Arrest,Yes,Progressive,Yes,Poor,Comfort,15,Specialist,Comfort Care
+16,81,6,6,Cardiac Arrest,No,Progressive,Yes,Good,Comfort,10,Attending,Comfort Care
+17,77,12,10,Pneumonia,Yes,Newly Diagnosed,Yes,Good,Aggressive,9,Resident,Limited Care
+18,38,12,5,Sepsis,Yes,Progressive,No,Moderate,Aggressive,1,Attending,Full Care
+19,50,5,7,Pneumonia,No,Newly Diagnosed,No,Poor,Comfort,16,Attending,Comfort Care
+20,93,12,3,Sepsis,Yes,Newly Diagnosed,No,Good,Undecided,6,Attending,Limited Care
+21,75,3,7,Cardiac Arrest,No,Controlled,Yes,Moderate,Undecided,9,Attending,Limited Care
+22,39,10,3,Cardiac Arrest,No,Newly Diagnosed,Yes,Poor,Comfort,4,Specialist,Comfort Care
+23,66,7,7,Cardiac Arrest,Yes,Controlled,Yes,Good,Aggressive,2,Specialist,Limited Care
+24,76,15,8,Pneumonia,No,Controlled,Yes,Good,Comfort,4,Specialist,Comfort Care
+25,59,6,2,Stroke,No,Progressive,No,Moderate,Aggressive,1,Attending,Full Care
+26,77,10,2,Stroke,No,Controlled,Yes,Poor,Undecided,19,Resident,Comfort Care
+27,32,9,10,Cardiac Arrest,No,Progressive,Yes,Good,Undecided,10,Resident,Limited Care
+28,79,4,1,Stroke,No,Progressive,Yes,Moderate,Comfort,15,Attending,Limited Care
+29,79,3,9,Stroke,No,Progressive,No,Moderate,Undecided,19,Resident,Limited Care
+30,64,14,2,Pneumonia,No,Controlled,No,Moderate,Aggressive,16,Resident,Full Care
+31,79,13,2,Sepsis,Yes,Progressive,No,Moderate,Comfort,4,Specialist,Limited Care
+32,68,6,4,Cardiac Arrest,No,Progressive,Yes,Moderate,Aggressive,2,Specialist,Limited Care
+33,72,10,4,Cardiac Arrest,No,Progressive,Yes,Moderate,Undecided,13,Attending,Limited Care
+34,81,14,1,Pneumonia,Yes,Progressive,No,Moderate,Aggressive,1,Resident,Full Care
+35,20,4,9,Pneumonia,No,Controlled,No,Moderate,Comfort,17,Attending,Comfort Care
+36,68,5,5,Stroke,Yes,Progressive,Yes,Moderate,Undecided,13,Resident,Limited Care
+37,24,14,4,Cardiac Arrest,Yes,Controlled,No,Poor,Aggressive,4,Specialist,Limited Care
+38,38,3,5,Sepsis,No,Progressive,No,Good,Aggressive,7,Attending,Full Care
+39,90,3,0,Pneumonia,Yes,Progressive,No,Poor,Undecided,17,Attending,Comfort Care
+40,56,15,4,Sepsis,No,Progressive,No,Poor,Comfort,9,Attending,Comfort Care
+41,35,5,8,Sepsis,No,Progressive,Yes,Good,Aggressive,4,Resident,Limited Care
+42,21,13,9,Cardiac Arrest,No,Newly Diagnosed,Yes,Moderate,Aggressive,19,Attending,Limited Care
+43,77,7,1,Cardiac Arrest,No,Newly Diagnosed,Yes,Moderate,Aggressive,1,Specialist,Full Care
+44,31,14,0,Pneumonia,Yes,Newly Diagnosed,No,Good,Undecided,10,Attending,Full Care
+45,26,5,9,Cardiac Arrest,No,Newly Diagnosed,No,Moderate,Comfort,4,Resident,Comfort Care
+46,70,3,10,Cardiac Arrest,No,Controlled,No,Good,Aggressive,9,Attending,Full Care
+47,19,3,8,Cardiac Arrest,No,Controlled,Yes,Good,Aggressive,13,Attending,Limited Care
+48,77,10,9,Sepsis,Yes,Progressive,No,Poor,Aggressive,14,Specialist,Comfort Care
+49,88,12,8,Pneumonia,No,Controlled,No,Good,Aggressive,10,Attending,Limited Care
+50,61,13,8,Stroke,No,Progressive,No,Poor,Comfort,6,Attending,Comfort Care
+51,25,14,5,Sepsis,No,Controlled,No,Moderate,Aggressive,16,Attending,Full Care
+52,64,15,7,Cardiac Arrest,No,Progressive,No,Poor,Aggressive,6,Attending,Comfort Care
+53,52,15,10,Sepsis,No,Progressive,Yes,Moderate,Comfort,17,Attending,Comfort Care
+54,95,14,0,Cardiac Arrest,No,Progressive,Yes,Good,Aggressive,10,Attending,Full Care
+55,53,4,9,Cardiac Arrest,No,Progressive,Yes,Moderate,Comfort,18,Attending,Comfort Care
+56,67,15,3,Sepsis,Yes,Newly Diagnosed,Yes,Good,Comfort,18,Specialist,Limited Care
+57,21,5,0,Pneumonia,No,Progressive,No,Moderate,Comfort,3,Attending,Limited Care
+58,19,4,7,Cardiac Arrest,No,Newly Diagnosed,No,Poor,Comfort,20,Specialist,Comfort Care
+59,23,5,0,Pneumonia,No,Controlled,Yes,Good,Comfort,15,Attending,Limited Care
+60,71,9,2,Stroke,No,Newly Diagnosed,Yes,Moderate,Undecided,15,Specialist,Limited Care
+61,21,3,3,Cardiac Arrest,Yes,Progressive,No,Poor,Comfort,4,Specialist,Comfort Care
+62,71,12,7,Pneumonia,No,Controlled,Yes,Poor,Comfort,9,Attending,Comfort Care
+63,80,10,5,Pneumonia,Yes,Controlled,Yes,Moderate,Undecided,19,Specialist,Limited Care
+64,35,15,9,Stroke,No,Progressive,Yes,Good,Comfort,17,Resident,Comfort Care
+65,61,12,6,Pneumonia,Yes,Controlled,Yes,Moderate,Aggressive,11,Specialist,Limited Care
+66,51,12,7,Pneumonia,Yes,Controlled,Yes,Good,Aggressive,9,Attending,Limited Care
+67,91,12,1,Stroke,No,Progressive,Yes,Poor,Aggressive,10,Resident,Limited Care
+68,79,4,9,Cardiac Arrest,No,Progressive,Yes,Poor,Undecided,18,Attending,Comfort Care
+69,31,5,10,Pneumonia,Yes,Progressive,No,Poor,Comfort,20,Specialist,Comfort Care
+70,65,11,7,Pneumonia,Yes,Newly Diagnosed,Yes,Poor,Undecided,13,Resident,Comfort Care
+71,32,9,2,Pneumonia,Yes,Progressive,No,Good,Comfort,8,Attending,Limited Care
+72,89,6,6,Sepsis,No,Progressive,Yes,Poor,Comfort,7,Specialist,Comfort Care
+73,95,12,2,Stroke,Yes,Controlled,Yes,Poor,Aggressive,17,Specialist,Limited Care
+74,79,7,6,Sepsis,No,Progressive,No,Good,Comfort,15,Attending,Limited Care
+75,57,4,10,Stroke,No,Controlled,Yes,Poor,Comfort,20,Resident,Comfort Care
+76,70,15,1,Cardiac Arrest,Yes,Newly Diagnosed,Yes,Good,Undecided,15,Resident,Limited Care
+77,41,13,9,Cardiac Arrest,No,Newly Diagnosed,Yes,Moderate,Aggressive,1,Attending,Limited Care
+78,43,15,5,Pneumonia,No,Progressive,No,Poor,Comfort,14,Attending,Comfort Care
+79,77,10,2,Stroke,Yes,Controlled,Yes,Moderate,Comfort,5,Specialist,Limited Care
+80,58,6,2,Cardiac Arrest,No,Newly Diagnosed,Yes,Good,Comfort,11,Resident,Limited Care
+81,46,11,8,Stroke,No,Progressive,No,Moderate,Comfort,16,Attending,Comfort Care
+82,32,7,6,Cardiac Arrest,No,Controlled,Yes,Moderate,Undecided,2,Resident,Limited Care
+83,62,15,4,Sepsis,No,Controlled,No,Poor,Aggressive,8,Resident,Limited Care
+84,82,11,9,Cardiac Arrest,No,Progressive,No,Moderate,Comfort,11,Attending,Comfort Care
+85,88,6,6,Sepsis,No,Controlled,No,Moderate,Comfort,18,Attending,Comfort Care
+86,26,12,8,Cardiac Arrest,No,Newly Diagnosed,Yes,Poor,Undecided,3,Attending,Comfort Care
+87,18,7,0,Pneumonia,No,Progressive,No,Moderate,Undecided,1,Specialist,Limited Care
+88,25,11,6,Sepsis,No,Controlled,Yes,Moderate,Aggressive,11,Attending,Limited Care
+89,80,10,5,Cardiac Arrest,No,Newly Diagnosed,Yes,Moderate,Aggressive,16,Specialist,Limited Care
+90,28,5,9,Pneumonia,Yes,Controlled,Yes,Poor,Undecided,18,Specialist,Comfort Care
+91,25,3,8,Sepsis,Yes,Progressive,No,Moderate,Comfort,16,Attending,Comfort Care
+92,52,5,0,Pneumonia,Yes,Controlled,Yes,Moderate,Undecided,10,Specialist,Limited Care
+93,52,6,3,Stroke,Yes,Controlled,Yes,Good,Aggressive,18,Attending,Full Care
+94,50,4,8,Stroke,Yes,Progressive,Yes,Good,Comfort,6,Resident,Comfort Care
+95,22,3,3,Sepsis,No,Progressive,No,Good,Undecided,19,Specialist,Full Care
+96,58,9,9,Cardiac Arrest,Yes,Progressive,No,Good,Undecided,4,Resident,Limited Care
+97,45,10,2,Sepsis,No,Progressive,No,Moderate,Aggressive,13,Attending,Full Care
+98,24,9,8,Pneumonia,Yes,Progressive,Yes,Poor,Comfort,14,Specialist,Comfort Care
+99,90,7,1,Cardiac Arrest,No,Controlled,Yes,Moderate,Comfort,3,Resident,Comfort Care
+100,89,14,3,Stroke,No,Controlled,No,Poor,Aggressive,10,Resident,Limited Care
+101,29,3,5,Cardiac Arrest,No,Newly Diagnosed,Yes,Poor,Comfort,6,Specialist,Comfort Care
+102,51,9,1,Stroke,No,Progressive,Yes,Poor,Comfort,1,Attending,Comfort Care
+103,50,15,7,Cardiac Arrest,Yes,Progressive,No,Moderate,Undecided,14,Resident,Limited Care
+104,65,9,7,Cardiac Arrest,No,Controlled,No,Moderate,Comfort,8,Attending,Comfort Care
+105,40,11,0,Cardiac Arrest,Yes,Controlled,No,Moderate,Aggressive,19,Attending,Full Care
+106,79,5,2,Pneumonia,No,Progressive,No,Good,Aggressive,14,Attending,Full Care
+107,54,11,9,Pneumonia,Yes,Newly Diagnosed,No,Moderate,Comfort,10,Specialist,Comfort Care
+108,61,3,8,Sepsis,No,Progressive,Yes,Poor,Aggressive,17,Attending,Comfort Care
+109,52,3,4,Sepsis,No,Newly Diagnosed,Yes,Poor,Undecided,9,Attending,Comfort Care
+110,82,6,5,Stroke,Yes,Progressive,No,Good,Aggressive,6,Specialist,Full Care
+111,64,11,3,Pneumonia,Yes,Controlled,Yes,Moderate,Undecided,11,Specialist,Limited Care
+112,95,8,9,Stroke,Yes,Progressive,No,Poor,Undecided,7,Resident,Comfort Care
+113,20,15,1,Sepsis,Yes,Controlled,Yes,Good,Comfort,17,Resident,Limited Care
+114,18,13,10,Stroke,No,Controlled,Yes,Moderate,Undecided,1,Resident,Limited Care
+115,22,5,7,Sepsis,Yes,Newly Diagnosed,No,Poor,Undecided,5,Attending,Comfort Care
+116,31,3,10,Pneumonia,No,Progressive,No,Moderate,Comfort,9,Attending,Comfort Care
+117,44,6,5,Cardiac Arrest,Yes,Progressive,No,Good,Aggressive,18,Attending,Full Care
+118,26,14,4,Pneumonia,No,Controlled,Yes,Moderate,Comfort,2,Specialist,Comfort Care
+119,32,15,8,Stroke,Yes,Controlled,No,Poor,Comfort,11,Specialist,Comfort Care
+120,59,11,0,Stroke,Yes,Controlled,Yes,Moderate,Undecided,6,Resident,Limited Care
+121,94,5,4,Pneumonia,Yes,Controlled,Yes,Good,Comfort,8,Attending,Comfort Care
+122,68,14,5,Pneumonia,No,Progressive,Yes,Moderate,Undecided,4,Attending,Limited Care
+123,80,11,4,Sepsis,No,Controlled,Yes,Moderate,Comfort,18,Attending,Comfort Care
+124,69,9,5,Stroke,No,Progressive,Yes,Moderate,Aggressive,11,Attending,Limited Care
+125,21,14,5,Stroke,Yes,Controlled,No,Poor,Undecided,5,Specialist,Comfort Care
+126,40,6,6,Pneumonia,No,Controlled,No,Good,Comfort,15,Attending,Limited Care
+127,32,5,3,Cardiac Arrest,No,Controlled,No,Poor,Aggressive,18,Attending,Limited Care
+128,60,12,10,Stroke,Yes,Progressive,Yes,Good,Comfort,2,Specialist,Comfort Care
+129,46,7,7,Cardiac Arrest,No,Progressive,No,Moderate,Aggressive,11,Attending,Limited Care
+130,53,7,6,Pneumonia,No,Progressive,No,Good,Comfort,13,Resident,Limited Care
+131,30,5,8,Pneumonia,Yes,Progressive,No,Moderate,Comfort,4,Attending,Comfort Care
+132,49,14,6,Sepsis,No,Progressive,Yes,Moderate,Comfort,7,Resident,Comfort Care
+133,88,11,2,Stroke,No,Controlled,Yes,Moderate,Undecided,11,Specialist,Limited Care
+134,76,6,2,Cardiac Arrest,No,Controlled,Yes,Good,Comfort,4,Resident,Limited Care
+135,45,13,7,Sepsis,Yes,Newly Diagnosed,Yes,Moderate,Aggressive,15,Attending,Limited Care
+136,83,7,4,Stroke,Yes,Progressive,Yes,Good,Comfort,1,Attending,Comfort Care
+137,59,6,3,Sepsis,No,Controlled,No,Poor,Undecided,3,Specialist,Comfort Care
+138,62,7,7,Pneumonia,No,Newly Diagnosed,Yes,Poor,Aggressive,14,Resident,Comfort Care
+139,79,9,5,Stroke,No,Progressive,Yes,Moderate,Aggressive,6,Resident,Limited Care
+140,74,11,1,Sepsis,No,Controlled,Yes,Moderate,Aggressive,18,Resident,Full Care
+141,23,9,3,Sepsis,No,Progressive,Yes,Moderate,Aggressive,1,Resident,Full Care
+142,45,15,10,Cardiac Arrest,No,Progressive,Yes,Good,Undecided,6,Resident,Limited Care
+143,45,7,3,Sepsis,No,Progressive,Yes,Moderate,Comfort,6,Attending,Limited Care
+144,61,12,5,Stroke,Yes,Controlled,Yes,Poor,Aggressive,16,Resident,Limited Care
+145,47,12,5,Stroke,No,Controlled,No,Moderate,Comfort,5,Resident,Comfort Care
+146,79,9,0,Cardiac Arrest,No,Progressive,No,Good,Aggressive,17,Specialist,Full Care
+147,92,12,7,Stroke,No,Progressive,Yes,Poor,Undecided,10,Attending,Comfort Care
+148,79,7,5,Pneumonia,Yes,Newly Diagnosed,Yes,Moderate,Undecided,18,Attending,Limited Care
+149,18,5,2,Stroke,Yes,Progressive,No,Poor,Aggressive,7,Attending,Limited Care
+150,44,9,8,Stroke,Yes,Controlled,Yes,Moderate,Undecided,3,Specialist,Limited Care
+151,79,15,1,Sepsis,No,Progressive,Yes,Moderate,Undecided,13,Resident,Limited Care
+152,94,13,10,Sepsis,No,Controlled,No,Good,Aggressive,15,Specialist,Limited Care
+153,20,13,7,Stroke,Yes,Progressive,Yes,Good,Aggressive,20,Specialist,Limited Care
+154,87,4,9,Cardiac Arrest,No,Progressive,No,Poor,Comfort,19,Resident,Comfort Care
+155,89,14,2,Sepsis,No,Controlled,Yes,Good,Undecided,3,Specialist,Limited Care
+156,44,11,4,Cardiac Arrest,No,Progressive,Yes,Poor,Undecided,4,Resident,Comfort Care
+157,26,12,5,Stroke,Yes,Controlled,Yes,Moderate,Undecided,5,Resident,Limited Care
+158,79,12,9,Stroke,No,Controlled,No,Good,Undecided,1,Specialist,Limited Care
+159,54,14,5,Pneumonia,No,Controlled,Yes,Good,Comfort,4,Specialist,Limited Care
+160,68,3,3,Sepsis,Yes,Controlled,Yes,Good,Undecided,12,Attending,Limited Care
+161,61,15,2,Stroke,Yes,Newly Diagnosed,No,Poor,Undecided,10,Resident,Comfort Care
+162,41,8,3,Pneumonia,No,Progressive,Yes,Moderate,Aggressive,20,Attending,Full Care
+163,76,9,0,Sepsis,No,Controlled,Yes,Moderate,Comfort,13,Specialist,Limited Care
+164,49,15,3,Stroke,Yes,Progressive,No,Moderate,Undecided,14,Attending,Limited Care
+165,69,10,0,Stroke,No,Controlled,Yes,Good,Aggressive,5,Attending,Full Care
+166,79,12,0,Sepsis,No,Newly Diagnosed,No,Moderate,Undecided,4,Resident,Limited Care
+167,75,11,9,Sepsis,No,Progressive,No,Good,Aggressive,14,Resident,Full Care
+168,69,4,5,Sepsis,No,Progressive,No,Poor,Comfort,10,Specialist,Comfort Care
+169,29,13,4,Stroke,No,Controlled,Yes,Moderate,Undecided,17,Attending,Limited Care
+170,56,12,10,Stroke,No,Progressive,No,Moderate,Aggressive,10,Specialist,Limited Care
+171,19,4,3,Pneumonia,Yes,Progressive,Yes,Moderate,Aggressive,7,Attending,Full Care
+172,20,7,10,Cardiac Arrest,Yes,Newly Diagnosed,No,Moderate,Comfort,16,Specialist,Comfort Care
+173,73,15,2,Sepsis,No,Controlled,Yes,Poor,Undecided,1,Resident,Comfort Care
+174,76,7,0,Stroke,No,Controlled,Yes,Moderate,Aggressive,17,Attending,Full Care
+175,19,8,5,Stroke,Yes,Newly Diagnosed,Yes,Good,Undecided,9,Resident,Limited Care
+176,19,5,1,Sepsis,No,Progressive,No,Moderate,Aggressive,6,Attending,Full Care
+177,71,10,7,Cardiac Arrest,No,Controlled,No,Good,Undecided,19,Attending,Limited Care
+178,18,15,9,Sepsis,No,Controlled,Yes,Good,Undecided,13,Specialist,Limited Care
+179,36,3,4,Cardiac Arrest,No,Newly Diagnosed,Yes,Poor,Comfort,3,Attending,Comfort Care
+180,19,8,6,Stroke,No,Controlled,No,Poor,Comfort,7,Resident,Comfort Care
+181,70,6,9,Cardiac Arrest,Yes,Progressive,Yes,Poor,Comfort,9,Resident,Comfort Care
+182,61,3,1,Pneumonia,Yes,Progressive,Yes,Moderate,Comfort,5,Resident,Limited Care
+183,49,9,7,Stroke,Yes,Controlled,No,Moderate,Aggressive,10,Attending,Limited Care
+184,87,11,1,Pneumonia,Yes,Progressive,Yes,Good,Aggressive,17,Specialist,Full Care
+185,49,15,3,Sepsis,No,Controlled,No,Good,Aggressive,12,Specialist,Full Care
+186,85,6,0,Sepsis,No,Controlled,Yes,Poor,Comfort,16,Resident,Comfort Care
+187,72,6,4,Sepsis,Yes,Progressive,Yes,Moderate,Aggressive,3,Attending,Limited Care
+188,92,8,8,Cardiac Arrest,No,Newly Diagnosed,Yes,Poor,Comfort,9,Attending,Comfort Care
+189,73,14,0,Stroke,Yes,Progressive,No,Poor,Undecided,15,Attending,Comfort Care
+190,34,5,8,Sepsis,No,Progressive,Yes,Good,Aggressive,5,Attending,Limited Care
+191,55,15,10,Sepsis,No,Controlled,No,Moderate,Comfort,13,Attending,Comfort Care
+192,41,14,7,Stroke,Yes,Controlled,Yes,Moderate,Comfort,14,Attending,Comfort Care
+193,86,8,5,Sepsis,No,Controlled,No,Good,Undecided,20,Resident,Limited Care
+194,87,9,6,Pneumonia,Yes,Controlled,Yes,Poor,Undecided,15,Specialist,Comfort Care
+195,28,13,2,Stroke,No,Controlled,Yes,Moderate,Undecided,16,Resident,Limited Care
+196,33,12,0,Stroke,No,Controlled,No,Good,Undecided,13,Attending,Full Care
+197,90,12,4,Stroke,Yes,Controlled,Yes,Moderate,Aggressive,17,Attending,Limited Care
+198,76,5,1,Pneumonia,No,Controlled,Yes,Poor,Undecided,8,Attending,Comfort Care
+199,87,9,4,Stroke,Yes,Progressive,No,Good,Undecided,2,Specialist,Limited Care
+200,20,5,7,Pneumonia,Yes,Newly Diagnosed,Yes,Poor,Aggressive,5,Specialist,Comfort Care
+201,37,15,10,Stroke,No,Controlled,No,Good,Undecided,6,Specialist,Limited Care
+202,76,15,8,Cardiac Arrest,Yes,Newly Diagnosed,Yes,Poor,Aggressive,12,Attending,Comfort Care
+203,53,4,1,Sepsis,No,Newly Diagnosed,No,Poor,Comfort,18,Specialist,Comfort Care
+204,36,14,2,Cardiac Arrest,No,Controlled,Yes,Moderate,Aggressive,1,Attending,Full Care
+205,84,12,2,Sepsis,No,Progressive,Yes,Moderate,Comfort,17,Specialist,Comfort Care
+206,36,6,0,Pneumonia,Yes,Progressive,No,Poor,Comfort,11,Attending,Comfort Care
+207,37,14,7,Cardiac Arrest,No,Progressive,No,Moderate,Comfort,10,Specialist,Comfort Care
+208,88,10,5,Stroke,No,Controlled,Yes,Poor,Comfort,19,Specialist,Comfort Care
+209,69,15,7,Sepsis,No,Progressive,Yes,Good,Aggressive,14,Specialist,Limited Care
+210,50,11,10,Sepsis,No,Controlled,No,Poor,Undecided,10,Resident,Comfort Care
+211,57,9,8,Cardiac Arrest,No,Progressive,Yes,Poor,Aggressive,15,Resident,Comfort Care
+212,56,3,4,Pneumonia,No,Progressive,No,Poor,Comfort,19,Specialist,Comfort Care
+213,18,5,2,Cardiac Arrest,No,Progressive,No,Good,Undecided,4,Resident,Full Care
+214,28,15,4,Pneumonia,No,Progressive,Yes,Moderate,Undecided,2,Specialist,Limited Care
+215,74,14,4,Pneumonia,No,Progressive,Yes,Moderate,Comfort,9,Attending,Comfort Care
+216,67,11,4,Sepsis,No,Controlled,No,Moderate,Undecided,10,Attending,Limited Care
+217,40,14,2,Cardiac Arrest,No,Controlled,Yes,Moderate,Undecided,11,Specialist,Limited Care
+218,48,3,10,Cardiac Arrest,Yes,Newly Diagnosed,Yes,Good,Undecided,14,Attending,Limited Care
+219,59,11,9,Pneumonia,Yes,Controlled,No,Poor,Comfort,7,Attending,Comfort Care
+220,24,10,3,Cardiac Arrest,No,Controlled,Yes,Moderate,Aggressive,15,Attending,Full Care
+221,33,3,8,Stroke,Yes,Controlled,No,Good,Aggressive,19,Attending,Full Care
+222,77,8,9,Stroke,No,Controlled,Yes,Moderate,Aggressive,15,Specialist,Limited Care
+223,19,7,8,Cardiac Arrest,Yes,Newly Diagnosed,Yes,Moderate,Comfort,8,Resident,Comfort Care
+224,18,8,1,Cardiac Arrest,Yes,Progressive,Yes,Good,Aggressive,11,Specialist,Full Care
+225,65,12,7,Pneumonia,No,Newly Diagnosed,Yes,Poor,Comfort,9,Specialist,Comfort Care
+226,29,14,7,Stroke,No,Progressive,Yes,Poor,Aggressive,15,Attending,Comfort Care
+227,86,15,6,Stroke,Yes,Progressive,Yes,Moderate,Aggressive,1,Specialist,Limited Care
+228,54,15,7,Sepsis,No,Controlled,No,Good,Undecided,1,Attending,Limited Care
+229,49,15,2,Pneumonia,No,Progressive,Yes,Poor,Comfort,19,Attending,Comfort Care
+230,26,7,5,Sepsis,Yes,Controlled,Yes,Moderate,Aggressive,3,Specialist,Limited Care
+231,36,8,0,Stroke,No,Newly Diagnosed,Yes,Moderate,Undecided,10,Resident,Limited Care
+232,65,7,6,Pneumonia,No,Newly Diagnosed,Yes,Moderate,Aggressive,8,Resident,Limited Care
+233,20,13,0,Cardiac Arrest,Yes,Controlled,Yes,Moderate,Comfort,15,Attending,Limited Care
+234,37,14,8,Pneumonia,No,Newly Diagnosed,Yes,Moderate,Undecided,10,Attending,Limited Care
+235,41,7,0,Cardiac Arrest,Yes,Newly Diagnosed,Yes,Moderate,Aggressive,1,Attending,Full Care
+236,71,6,0,Cardiac Arrest,No,Progressive,Yes,Moderate,Undecided,18,Specialist,Limited Care
+237,50,5,6,Pneumonia,No,Controlled,Yes,Poor,Comfort,2,Attending,Comfort Care
+238,41,5,1,Cardiac Arrest,Yes,Progressive,No,Moderate,Comfort,19,Attending,Limited Care
+239,92,6,4,Sepsis,No,Progressive,Yes,Poor,Aggressive,13,Resident,Comfort Care
+240,89,11,7,Stroke,No,Controlled,Yes,Poor,Aggressive,1,Attending,Comfort Care
+241,53,4,7,Cardiac Arrest,Yes,Controlled,No,Moderate,Undecided,2,Resident,Limited Care
+242,55,11,2,Sepsis,No,Progressive,Yes,Moderate,Aggressive,16,Resident,Full Care
+243,42,3,6,Cardiac Arrest,No,Controlled,No,Moderate,Comfort,15,Attending,Comfort Care
+244,35,3,2,Stroke,No,Progressive,Yes,Moderate,Comfort,13,Resident,Limited Care
+245,83,7,5,Sepsis,No,Newly Diagnosed,Yes,Poor,Comfort,16,Resident,Comfort Care
+246,71,8,5,Stroke,Yes,Newly Diagnosed,Yes,Moderate,Aggressive,17,Resident,Limited Care
+247,52,8,2,Stroke,No,Controlled,Yes,Poor,Aggressive,7,Specialist,Limited Care
+248,78,5,6,Sepsis,No,Newly Diagnosed,No,Good,Comfort,17,Specialist,Limited Care
+249,58,9,2,Sepsis,No,Controlled,Yes,Good,Aggressive,7,Attending,Full Care
+250,50,11,7,Sepsis,No,Controlled,No,Moderate,Aggressive,13,Specialist,Limited Care
+251,85,13,9,Pneumonia,No,Progressive,Yes,Good,Aggressive,5,Specialist,Limited Care
+252,50,14,3,Sepsis,No,Controlled,Yes,Good,Comfort,17,Attending,Limited Care
+253,31,12,0,Sepsis,No,Controlled,Yes,Moderate,Undecided,3,Resident,Limited Care
+254,38,10,3,Sepsis,No,Progressive,Yes,Good,Aggressive,7,Specialist,Full Care
+255,65,8,6,Sepsis,No,Controlled,Yes,Good,Aggressive,17,Specialist,Full Care
+256,37,14,10,Cardiac Arrest,No,Controlled,No,Poor,Aggressive,7,Attending,Comfort Care
+257,25,10,3,Pneumonia,No,Progressive,No,Good,Comfort,1,Specialist,Limited Care
+258,24,14,5,Stroke,Yes,Progressive,Yes,Poor,Comfort,17,Attending,Comfort Care
+259,84,7,8,Sepsis,Yes,Progressive,No,Poor,Comfort,17,Specialist,Comfort Care
+260,34,10,0,Cardiac Arrest,No,Controlled,No,Poor,Undecided,11,Specialist,Comfort Care
+261,50,12,4,Cardiac Arrest,No,Progressive,No,Good,Comfort,3,Attending,Limited Care
+262,65,14,10,Cardiac Arrest,No,Controlled,Yes,Poor,Undecided,15,Specialist,Comfort Care
+263,93,6,6,Stroke,No,Controlled,No,Moderate,Undecided,11,Attending,Limited Care
+264,76,12,0,Sepsis,No,Progressive,Yes,Moderate,Aggressive,16,Attending,Full Care
+265,39,10,3,Pneumonia,No,Controlled,No,Moderate,Aggressive,9,Specialist,Full Care
+266,47,12,5,Pneumonia,Yes,Controlled,Yes,Poor,Aggressive,1,Resident,Limited Care
+267,55,14,1,Cardiac Arrest,No,Progressive,Yes,Moderate,Aggressive,16,Attending,Full Care
+268,68,4,9,Stroke,No,Progressive,No,Poor,Undecided,9,Resident,Comfort Care
+269,71,14,4,Stroke,No,Progressive,Yes,Moderate,Comfort,19,Attending,Comfort Care
+270,25,14,10,Stroke,No,Controlled,No,Poor,Aggressive,12,Attending,Comfort Care
+271,44,7,9,Pneumonia,Yes,Controlled,No,Poor,Undecided,19,Specialist,Comfort Care
+272,44,11,0,Cardiac Arrest,Yes,Controlled,No,Good,Comfort,9,Resident,Limited Care
+273,38,6,5,Sepsis,Yes,Controlled,Yes,Poor,Aggressive,7,Attending,Limited Care
+274,47,13,5,Pneumonia,No,Progressive,No,Good,Aggressive,14,Resident,Full Care
+275,45,8,3,Cardiac Arrest,Yes,Newly Diagnosed,Yes,Good,Comfort,19,Specialist,Limited Care
+276,81,3,7,Cardiac Arrest,No,Progressive,Yes,Good,Undecided,19,Specialist,Limited Care
+277,86,11,3,Sepsis,No,Progressive,No,Moderate,Aggressive,2,Specialist,Full Care
+278,78,3,7,Sepsis,Yes,Progressive,Yes,Moderate,Aggressive,9,Specialist,Limited Care
+279,65,7,7,Sepsis,No,Progressive,Yes,Good,Comfort,13,Specialist,Comfort Care
+280,36,6,4,Stroke,Yes,Controlled,No,Good,Aggressive,15,Resident,Full Care
+281,21,15,3,Sepsis,No,Progressive,Yes,Poor,Comfort,3,Attending,Comfort Care
+282,52,14,1,Cardiac Arrest,Yes,Progressive,Yes,Poor,Comfort,11,Attending,Comfort Care
+283,81,15,10,Sepsis,No,Controlled,No,Poor,Aggressive,14,Specialist,Comfort Care
+284,66,15,2,Cardiac Arrest,Yes,Controlled,Yes,Poor,Undecided,8,Specialist,Comfort Care
+285,34,5,2,Pneumonia,No,Newly Diagnosed,No,Poor,Comfort,18,Resident,Comfort Care
+286,61,15,3,Stroke,No,Controlled,No,Good,Aggressive,19,Specialist,Full Care
+287,47,8,3,Pneumonia,No,Controlled,No,Moderate,Comfort,16,Attending,Limited Care
+288,63,4,9,Pneumonia,No,Progressive,No,Poor,Undecided,2,Attending,Comfort Care
+289,23,5,10,Cardiac Arrest,No,Progressive,Yes,Good,Comfort,8,Resident,Comfort Care
+290,54,7,10,Pneumonia,No,Progressive,Yes,Moderate,Aggressive,6,Resident,Limited Care
+291,41,11,4,Cardiac Arrest,No,Progressive,No,Good,Undecided,12,Attending,Limited Care
+292,63,4,3,Sepsis,No,Controlled,No,Moderate,Comfort,15,Attending,Limited Care
+293,70,12,10,Sepsis,No,Progressive,Yes,Moderate,Aggressive,8,Resident,Limited Care
+294,77,10,9,Cardiac Arrest,No,Controlled,Yes,Moderate,Aggressive,4,Attending,Limited Care
+295,80,4,7,Sepsis,Yes,Newly Diagnosed,Yes,Moderate,Aggressive,15,Specialist,Limited Care
+296,49,13,5,Stroke,No,Progressive,Yes,Moderate,Undecided,20,Specialist,Limited Care
+297,50,15,5,Pneumonia,No,Controlled,No,Good,Aggressive,17,Specialist,Full Care
+298,84,7,7,Stroke,No,Controlled,Yes,Good,Aggressive,13,Attending,Limited Care
+299,35,9,6,Pneumonia,No,Controlled,No,Poor,Undecided,18,Attending,Comfort Care
+300,42,10,9,Sepsis,No,Controlled,No,Moderate,Aggressive,2,Specialist,Limited Care
+301,71,3,10,Stroke,No,Controlled,Yes,Good,Aggressive,13,Attending,Limited Care
+302,75,8,9,Sepsis,Yes,Progressive,No,Poor,Aggressive,13,Resident,Comfort Care
+303,84,3,7,Pneumonia,No,Progressive,Yes,Good,Aggressive,15,Resident,Limited Care
+304,63,4,1,Cardiac Arrest,No,Controlled,Yes,Moderate,Aggressive,20,Attending,Full Care
+305,41,3,8,Cardiac Arrest,No,Controlled,No,Good,Comfort,10,Resident,Comfort Care
+306,49,13,0,Stroke,No,Controlled,No,Poor,Aggressive,3,Attending,Limited Care
+307,64,7,7,Sepsis,Yes,Newly Diagnosed,No,Moderate,Aggressive,19,Resident,Limited Care
+308,40,12,10,Sepsis,No,Controlled,Yes,Good,Undecided,3,Resident,Limited Care
+309,83,11,3,Stroke,No,Progressive,Yes,Poor,Comfort,14,Attending,Comfort Care
+310,44,8,3,Cardiac Arrest,No,Newly Diagnosed,No,Moderate,Comfort,8,Attending,Limited Care
+311,19,13,4,Pneumonia,No,Progressive,Yes,Good,Comfort,4,Attending,Limited Care
+312,34,13,7,Stroke,No,Newly Diagnosed,Yes,Good,Aggressive,20,Resident,Limited Care
+313,50,3,4,Pneumonia,No,Controlled,Yes,Good,Comfort,11,Resident,Limited Care
+314,26,15,7,Cardiac Arrest,No,Newly Diagnosed,No,Good,Comfort,11,Attending,Comfort Care
+315,60,3,9,Sepsis,Yes,Controlled,Yes,Moderate,Aggressive,11,Attending,Limited Care
+316,65,4,0,Cardiac Arrest,No,Controlled,No,Poor,Undecided,2,Attending,Comfort Care
+317,56,11,9,Stroke,Yes,Progressive,No,Moderate,Aggressive,17,Attending,Limited Care
+318,59,5,8,Sepsis,No,Newly Diagnosed,Yes,Good,Undecided,9,Specialist,Limited Care
+319,43,3,5,Stroke,No,Newly Diagnosed,Yes,Good,Aggressive,2,Attending,Full Care
+320,67,7,2,Stroke,No,Controlled,Yes,Good,Undecided,15,Attending,Limited Care
+321,42,9,7,Cardiac Arrest,No,Controlled,No,Moderate,Comfort,16,Attending,Comfort Care
+322,41,8,8,Stroke,Yes,Newly Diagnosed,Yes,Poor,Undecided,4,Attending,Comfort Care
+323,30,14,5,Cardiac Arrest,No,Controlled,Yes,Good,Aggressive,8,Attending,Full Care
+324,77,3,10,Sepsis,Yes,Progressive,Yes,Poor,Comfort,9,Attending,Comfort Care
+325,24,7,6,Cardiac Arrest,No,Newly Diagnosed,No,Poor,Comfort,5,Specialist,Comfort Care
+326,74,7,0,Sepsis,No,Progressive,Yes,Moderate,Comfort,16,Resident,Limited Care
+327,53,8,4,Cardiac Arrest,Yes,Controlled,No,Poor,Comfort,13,Resident,Comfort Care
+328,62,5,4,Pneumonia,No,Progressive,No,Moderate,Comfort,7,Attending,Comfort Care
+329,37,7,9,Pneumonia,No,Controlled,Yes,Moderate,Comfort,20,Specialist,Comfort Care
+330,82,9,3,Stroke,No,Newly Diagnosed,No,Moderate,Aggressive,17,Resident,Full Care
+331,25,7,5,Cardiac Arrest,Yes,Progressive,Yes,Moderate,Comfort,3,Specialist,Comfort Care
+332,33,7,6,Cardiac Arrest,Yes,Newly Diagnosed,No,Good,Aggressive,5,Attending,Full Care
+333,31,7,8,Sepsis,No,Controlled,No,Moderate,Undecided,19,Specialist,Limited Care
+334,93,12,0,Stroke,No,Newly Diagnosed,No,Good,Comfort,12,Specialist,Limited Care
+335,32,12,5,Cardiac Arrest,Yes,Progressive,Yes,Moderate,Undecided,7,Attending,Limited Care
+336,83,5,6,Stroke,No,Controlled,Yes,Good,Aggressive,9,Resident,Limited Care
+337,49,3,2,Pneumonia,No,Controlled,Yes,Poor,Undecided,6,Resident,Comfort Care
+338,80,7,7,Cardiac Arrest,Yes,Progressive,Yes,Poor,Undecided,17,Resident,Comfort Care
+339,68,11,4,Cardiac Arrest,No,Progressive,Yes,Moderate,Comfort,16,Specialist,Comfort Care
+340,42,3,8,Stroke,No,Newly Diagnosed,Yes,Good,Comfort,3,Resident,Comfort Care
+341,75,5,4,Cardiac Arrest,No,Controlled,Yes,Poor,Aggressive,4,Attending,Limited Care
+342,80,15,8,Stroke,Yes,Controlled,Yes,Poor,Undecided,10,Attending,Comfort Care
+343,79,15,9,Cardiac Arrest,No,Progressive,No,Poor,Comfort,5,Specialist,Comfort Care
+344,39,6,3,Sepsis,No,Controlled,Yes,Good,Aggressive,10,Resident,Full Care
+345,75,3,8,Stroke,No,Progressive,Yes,Moderate,Aggressive,12,Resident,Limited Care
+346,75,3,4,Cardiac Arrest,No,Newly Diagnosed,Yes,Good,Undecided,10,Resident,Limited Care
+347,66,10,9,Pneumonia,No,Newly Diagnosed,Yes,Good,Undecided,13,Specialist,Limited Care
+348,69,4,8,Cardiac Arrest,No,Newly Diagnosed,No,Poor,Undecided,11,Attending,Comfort Care
+349,59,14,2,Pneumonia,No,Progressive,Yes,Poor,Comfort,16,Resident,Comfort Care
+350,87,10,3,Pneumonia,No,Controlled,No,Moderate,Aggressive,8,Resident,Full Care
+351,32,9,8,Sepsis,No,Progressive,No,Poor,Aggressive,8,Resident,Comfort Care
+352,71,12,9,Stroke,No,Progressive,No,Moderate,Aggressive,8,Resident,Limited Care
+353,77,12,10,Cardiac Arrest,No,Newly Diagnosed,No,Moderate,Aggressive,13,Specialist,Limited Care
+354,25,4,5,Sepsis,Yes,Controlled,No,Moderate,Aggressive,2,Specialist,Full Care
+355,70,8,1,Cardiac Arrest,No,Progressive,No,Poor,Aggressive,12,Attending,Limited Care
+356,77,8,6,Pneumonia,Yes,Controlled,No,Good,Comfort,10,Specialist,Limited Care
+357,22,5,1,Stroke,Yes,Progressive,Yes,Poor,Undecided,12,Resident,Comfort Care
+358,85,13,10,Cardiac Arrest,Yes,Newly Diagnosed,No,Poor,Comfort,11,Specialist,Comfort Care
+359,23,4,1,Cardiac Arrest,No,Progressive,Yes,Good,Undecided,15,Specialist,Limited Care
+360,64,14,10,Pneumonia,Yes,Controlled,No,Moderate,Comfort,16,Attending,Comfort Care
+361,72,3,0,Cardiac Arrest,Yes,Newly Diagnosed,Yes,Poor,Aggressive,17,Specialist,Limited Care
+362,57,8,10,Cardiac Arrest,Yes,Progressive,Yes,Moderate,Aggressive,2,Resident,Limited Care
+363,69,14,10,Pneumonia,Yes,Controlled,Yes,Poor,Aggressive,18,Resident,Comfort Care
+364,33,7,10,Sepsis,No,Controlled,Yes,Poor,Aggressive,12,Resident,Comfort Care
+365,30,13,2,Pneumonia,No,Controlled,Yes,Moderate,Comfort,19,Attending,Limited Care
+366,47,11,5,Sepsis,No,Controlled,Yes,Moderate,Aggressive,18,Specialist,Limited Care
+367,36,3,7,Stroke,No,Newly Diagnosed,Yes,Poor,Aggressive,17,Specialist,Comfort Care
+368,34,9,8,Sepsis,No,Progressive,Yes,Moderate,Aggressive,6,Attending,Limited Care
+369,80,7,6,Sepsis,Yes,Newly Diagnosed,No,Good,Undecided,15,Specialist,Limited Care
+370,36,7,3,Stroke,Yes,Controlled,Yes,Good,Undecided,3,Specialist,Limited Care
+371,75,4,5,Sepsis,No,Controlled,Yes,Moderate,Comfort,6,Resident,Comfort Care
+372,72,13,4,Pneumonia,No,Progressive,No,Poor,Aggressive,3,Attending,Limited Care
+373,79,5,7,Sepsis,Yes,Controlled,Yes,Poor,Undecided,1,Resident,Comfort Care
+374,40,9,0,Stroke,No,Progressive,Yes,Moderate,Undecided,13,Attending,Limited Care
+375,26,8,0,Pneumonia,Yes,Newly Diagnosed,No,Good,Comfort,14,Specialist,Limited Care
+376,29,14,10,Stroke,No,Progressive,No,Good,Undecided,13,Resident,Limited Care
+377,18,4,5,Stroke,Yes,Progressive,Yes,Poor,Aggressive,4,Specialist,Limited Care
+378,75,8,9,Cardiac Arrest,Yes,Controlled,Yes,Good,Undecided,7,Attending,Limited Care
+379,18,4,1,Cardiac Arrest,Yes,Controlled,No,Good,Undecided,10,Attending,Full Care
+380,51,4,4,Stroke,No,Controlled,No,Good,Aggressive,7,Attending,Full Care
+381,65,4,0,Stroke,No,Progressive,Yes,Moderate,Comfort,15,Attending,Limited Care
+382,18,13,6,Stroke,Yes,Controlled,No,Poor,Undecided,15,Resident,Comfort Care
+383,33,5,0,Cardiac Arrest,Yes,Controlled,Yes,Good,Aggressive,4,Resident,Full Care
+384,78,4,3,Cardiac Arrest,No,Progressive,Yes,Moderate,Comfort,6,Resident,Limited Care
+385,81,6,8,Sepsis,Yes,Controlled,Yes,Moderate,Undecided,20,Attending,Comfort Care
+386,80,11,0,Sepsis,Yes,Controlled,No,Poor,Comfort,5,Resident,Comfort Care
+387,86,8,3,Stroke,No,Controlled,Yes,Good,Aggressive,20,Specialist,Full Care
+388,39,3,5,Pneumonia,Yes,Newly Diagnosed,No,Moderate,Comfort,12,Attending,Comfort Care
+389,84,10,5,Pneumonia,No,Progressive,Yes,Moderate,Aggressive,1,Attending,Limited Care
+390,93,14,7,Cardiac Arrest,No,Progressive,Yes,Poor,Comfort,8,Attending,Comfort Care
+391,43,9,0,Cardiac Arrest,No,Controlled,Yes,Moderate,Aggressive,1,Attending,Full Care
+392,33,12,6,Cardiac Arrest,Yes,Newly Diagnosed,No,Good,Comfort,5,Specialist,Limited Care
+393,68,5,0,Stroke,Yes,Progressive,Yes,Moderate,Comfort,6,Resident,Limited Care
+394,74,3,6,Pneumonia,No,Controlled,Yes,Poor,Comfort,3,Resident,Comfort Care
+395,46,7,2,Sepsis,No,Newly Diagnosed,No,Good,Comfort,15,Specialist,Limited Care
+396,95,15,10,Stroke,No,Controlled,Yes,Poor,Comfort,5,Resident,Comfort Care
+397,86,6,7,Sepsis,Yes,Progressive,No,Good,Comfort,14,Resident,Comfort Care
+398,64,12,2,Sepsis,No,Progressive,Yes,Moderate,Aggressive,18,Attending,Full Care
+399,79,10,0,Stroke,No,Controlled,No,Moderate,Comfort,16,Resident,Limited Care
+400,86,3,7,Sepsis,No,Newly Diagnosed,Yes,Poor,Aggressive,6,Attending,Comfort Care
