@@ -37,7 +37,7 @@ def create_and_train():
 
     X_enc = pd.get_dummies(X)
 
-    model = RandomForestClassifier(n_estimators=200)
+    model = RandomForestClassifier(n_estimators=200, random_state=42)
     model.fit(X_enc, y)
 
     return model, X_enc.columns
@@ -109,6 +109,8 @@ with tab1:
             "Physician_Level":[physician]
         })
 
+        st.session_state["patient"] = patient
+
         patient_enc = pd.get_dummies(patient)
         patient_enc = patient_enc.reindex(columns=feature_columns, fill_value=0)
 
@@ -117,6 +119,7 @@ with tab1:
 
         st.success(pred)
 
+        st.subheader("Probabilities")
         for c,p in zip(model.classes_, prob):
             st.write(f"{c}: {round(p*100,2)}%")
 
@@ -127,22 +130,26 @@ with tab2:
 
     st.header("What-If Simulation")
 
-    sim_family = st.selectbox(
-        "Change Family Preference",
-        ["Aggressive","Comfort","Undecided"]
-    )
+    if "patient" not in st.session_state:
+        st.warning("Run prediction first in Prediction tab")
+    else:
 
-    if st.button("Run Simulation"):
+        sim_family = st.selectbox(
+            "Change Family Preference",
+            ["Aggressive","Comfort","Undecided"]
+        )
 
-        sim_patient = patient.copy()
-        sim_patient["Family_Preference"] = sim_family
+        if st.button("Run Simulation"):
 
-        sim_enc = pd.get_dummies(sim_patient)
-        sim_enc = sim_enc.reindex(columns=feature_columns, fill_value=0)
+            sim_patient = st.session_state["patient"].copy()
+            sim_patient["Family_Preference"] = sim_family
 
-        sim_pred = model.predict(sim_enc)[0]
+            sim_enc = pd.get_dummies(sim_patient)
+            sim_enc = sim_enc.reindex(columns=feature_columns, fill_value=0)
 
-        st.info(f"Simulated Outcome: {sim_pred}")
+            sim_pred = model.predict(sim_enc)[0]
+
+            st.info(f"Simulated Outcome: {sim_pred}")
 
 # =========================
 # TAB 3 — CASE BANK
@@ -196,6 +203,7 @@ with tab4:
     plt.barh(importance["Feature"][:10], importance["Importance"][:10])
     plt.gca().invert_yaxis()
     st.pyplot(fig)
+
 
 
 
