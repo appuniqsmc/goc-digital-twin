@@ -1,4 +1,6 @@
 import streamlit as st
+st.cache_resource.clear()
+
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 
@@ -97,3 +99,4 @@ if st.button("Predict Goals of Care"):
     st.subheader("Probabilities")
     for c, p in zip(model.classes_, prob):
         st.write(f"{c}: {round(p*100,2)}%")
+
