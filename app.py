@@ -1,19 +1,52 @@
 import streamlit as st
-st.cache_resource.clear()
-
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
+import os
 
 st.title("Onco ICU Goals of Care Digital Twin")
 
-# -----------------------------
-# Load & Train Model (No pickle)
-# -----------------------------
+# ---------------------
+# DEBUG FILE LIST
+# ---------------------
+st.write("Files in current directory:")
+st.write(os.listdir())
+
+# ---------------------
+# LOAD DATA SAFE
+# ---------------------
 @st.cache_resource
 def load_and_train():
-    data = pd.read_csvdata = pd.read_csv("data.csv")
+
+    # Try multiple filenames automatically
+    possible_files = [
+        "data.csv",
+        "GoC_Digital_Twin_AutoML_Ready.csv",
+        "goc_digital_twin_automl_ready.csv"
+    ]
+
+    file_found = None
+
+    for f in possible_files:
+        if os.path.exists(f):
+            file_found = f
+            break
+
+    if file_found is None:
+        st.error("CSV FILE NOT FOUND. Upload dataset to GitHub repo root.")
+        st.stop()
+
+    st.success(f"Using dataset file: {file_found}")
+
+    data = pd.read_csv(file_found)
+
+    data.columns = data.columns.str.strip()
 
     target = "target_GoC"
+
+    if target not in data.columns:
+        st.error("target_GoC column missing")
+        st.stop()
+
     X = data.drop(columns=[target])
     y = data[target]
 
@@ -26,11 +59,9 @@ def load_and_train():
 
 model, feature_columns = load_and_train()
 
-# -----------------------------
-# UI Inputs
-# -----------------------------
-st.header("Enter Patient Details")
-
+# ---------------------
+# UI
+# ---------------------
 age = st.slider("Age", 18, 95, 60)
 gcs = st.slider("GCS", 3, 15, 12)
 cci = st.slider("Charlson Index", 0, 10, 2)
@@ -40,10 +71,7 @@ diagnosis = st.selectbox(
     ["Sepsis","Stroke","Cardiac Arrest","Pneumonia"]
 )
 
-vent = st.selectbox(
-    "Mechanical Ventilation",
-    ["Yes","No"]
-)
+vent = st.selectbox("Mechanical Ventilation", ["Yes","No"])
 
 malignancy = st.selectbox(
     "Active Malignancy",
@@ -67,9 +95,6 @@ physician = st.selectbox(
     ["Resident","Attending","Specialist"]
 )
 
-# -----------------------------
-# Prediction
-# -----------------------------
 if st.button("Predict Goals of Care"):
 
     patient = pd.DataFrame({
@@ -97,7 +122,8 @@ if st.button("Predict Goals of Care"):
     st.success(pred)
 
     st.subheader("Probabilities")
-    for c, p in zip(model.classes_, prob):
+
+    for c,p in zip(model.classes_, prob):
         st.write(f"{c}: {round(p*100,2)}%")
 
 
