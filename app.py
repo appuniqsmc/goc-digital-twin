@@ -1,67 +1,55 @@
 import streamlit as st
 import pandas as pd
+import numpy as np
 from sklearn.ensemble import RandomForestClassifier
-import os
 
 st.title("Onco ICU Goals of Care Digital Twin")
 
-# ---------------------
-# DEBUG FILE LIST
-# ---------------------
-st.write("Files in current directory:")
-st.write(os.listdir())
-
-# ---------------------
-# LOAD DATA SAFE
-# ---------------------
+# ----------------------
+# CREATE DATA INSIDE APP
+# ----------------------
 @st.cache_resource
-def load_and_train():
+def create_and_train():
 
-    # Try multiple filenames automatically
-    possible_files = [
-        "data.csv",
-        "GoC_Digital_Twin_AutoML_Ready.csv",
-        "goc_digital_twin_automl_ready.csv"
-    ]
+    np.random.seed(42)
 
-    file_found = None
+    n = 400
 
-    for f in possible_files:
-        if os.path.exists(f):
-            file_found = f
-            break
+    data = pd.DataFrame({
+        "Age": np.random.randint(18, 95, n),
+        "GCS": np.random.randint(3, 15, n),
+        "Charlson_Comorbidity_Index": np.random.randint(0, 10, n),
+        "Diagnosis": np.random.choice(["Sepsis","Stroke","Cardiac Arrest","Pneumonia"], n),
+        "Mechanical_Ventilation": np.random.choice(["Yes","No"], n),
+        "Active_Malignancy": np.random.choice(["Controlled","Progressive","Newly Diagnosed"], n),
+        "Clinical_Prognosis": np.random.choice(["Good","Moderate","Poor"], n),
+        "Family_Preference": np.random.choice(["Aggressive","Comfort","Undecided"], n),
+        "ICU_Day": np.random.randint(1, 20, n),
+        "Physician_Level": np.random.choice(["Resident","Attending","Specialist"], n)
+    })
 
-    if file_found is None:
-        st.error("CSV FILE NOT FOUND. Upload dataset to GitHub repo root.")
-        st.stop()
+    # Create synthetic GoC outcome
+    data["target_GoC"] = np.random.choice(
+        ["Full Care","Limited Care","Comfort Care"],
+        n
+    )
 
-    st.success(f"Using dataset file: {file_found}")
-
-    data = pd.read_csv(file_found)
-
-    data.columns = data.columns.str.strip()
-
-    target = "target_GoC"
-
-    if target not in data.columns:
-        st.error("target_GoC column missing")
-        st.stop()
-
-    X = data.drop(columns=[target])
-    y = data[target]
+    X = data.drop(columns=["target_GoC"])
+    y = data["target_GoC"]
 
     X_enc = pd.get_dummies(X)
 
-    model = RandomForestClassifier(n_estimators=200, random_state=42)
+    model = RandomForestClassifier(n_estimators=200)
     model.fit(X_enc, y)
 
     return model, X_enc.columns
 
-model, feature_columns = load_and_train()
+model, feature_columns = create_and_train()
 
-# ---------------------
-# UI
-# ---------------------
+# ----------------------
+# USER INPUT UI
+# ----------------------
+
 age = st.slider("Age", 18, 95, 60)
 gcs = st.slider("GCS", 3, 15, 12)
 cci = st.slider("Charlson Index", 0, 10, 2)
@@ -95,17 +83,19 @@ physician = st.selectbox(
     ["Resident","Attending","Specialist"]
 )
 
+# ----------------------
+# PREDICT
+# ----------------------
+
 if st.button("Predict Goals of Care"):
 
     patient = pd.DataFrame({
-        "Patient_ID":[999],
         "Age":[age],
         "GCS":[gcs],
         "Charlson_Comorbidity_Index":[cci],
         "Diagnosis":[diagnosis],
-        "Prior_ICU_Admission":["No"],
-        "Active_Malignancy":[malignancy],
         "Mechanical_Ventilation":[vent],
+        "Active_Malignancy":[malignancy],
         "Clinical_Prognosis":[prognosis],
         "Family_Preference":[family],
         "ICU_Day":[icu_day],
@@ -118,12 +108,12 @@ if st.button("Predict Goals of Care"):
     pred = model.predict(patient_enc)[0]
     prob = model.predict_proba(patient_enc)[0]
 
-    st.subheader("Prediction")
     st.success(pred)
 
     st.subheader("Probabilities")
 
     for c,p in zip(model.classes_, prob):
         st.write(f"{c}: {round(p*100,2)}%")
+
 
 
